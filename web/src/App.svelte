@@ -1,23 +1,45 @@
 <script lang="ts">
     import Notification from "./components/notification.svelte";
+    import { writable } from "svelte/store";
     import { useNuiEvent } from "./utils/useNuiEvent";
-    import { each } from "svelte/internal";
-    let notifications = [];
-    let visible = true;
-    let title = "";
-    let message = "";
-    notifications = [...notifications, {title: "Test", message: "Test"}]
-    useNuiEvent("sendNotification", (data) => {
-        visible = true;
-        title = data.title;
-        message = data.message;
-        notifications = [...notifications, {title: data.title, message: data.message }];
+    import { flip } from "svelte/animate";
+
+    const notifications = writable([
+    ]);
+
+    let lastAdded = new Date();
+    const addNotification = (notification) => {
+        if (new Date() - lastAdded < 1000) setTimeout(() => addNotification(notification), 1000);
+        else {
+            lastAdded = new Date();
+            notifications.update((n) => [...n, { ...notification, id: Math.random() }]);
+        }
+    };
+
+    useNuiEvent("notification", (notification) => {
+        addNotification(notification);
     });
 </script>
 
-{#if visible}
-    {#each notifications as notification}
-        <Notification title={notification.title} message={notification.message} />
+<ul>
+    {#each $notifications as notification, i (notification.id)}
+        <li animate:flip={{ delay:100 }}>
+            <Notification {...notification} {notifications}  />
+        </li>
     {/each}
-{/if}
+</ul>
+
+<style>
+    ul {
+        position: absolute;
+        display: flex;
+        flex-direction: column-reverse;
+        bottom: 15vh;
+        right: 1vh;
+        height: 80vh;
+        width: 40vh;
+        list-style: none;
+        gap: 2vh;
+    }
+</style>
 
