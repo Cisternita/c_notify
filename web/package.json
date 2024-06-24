@@ -1,0 +1,26 @@
+{
+    "name": "web",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "dev:game": "vite build --watch",
+        "build": "vite build",
+        "preview": "vite preview",
+        "check": "svelte-check --tsconfig ./tsconfig.json",
+        "format": "prettier --write  --plugin prettier-plugin-svelte ."
+    },
+    "devDependencies": {
+        "@sveltejs/vite-plugin-svelte": "^1.4.0",
+        "@tsconfig/svelte": "^3.0.0",
+        "prettier": "^3.0.0",
+        "prettier-plugin-svelte": "^3.0.0",
+        "svelte": "^3.59.2",
+        "svelte-check": "^2.10.3",
+        "svelte-preprocess": "^4.10.7",
+        "tslib": "^2.6.0",
+        "typescript": "^4.9.5",
+        "vite": "^3.2.7"
+    }
+}
