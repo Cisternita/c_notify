@@ -5,7 +5,7 @@
     import { flip } from "svelte/animate";
 
     const notifications = writable([
-        { color: "red", title: "Initializing", message: "Initializing script, this is a common message", time: 1000, id: Math.random() },
+        { color: "red", icon: "fa fa-info-circle", title: "Initializing", message: "Initializing script, this is a common message", time: 1000, id: Math.random() },
     ]);
 
     let lastAdded = new Date();

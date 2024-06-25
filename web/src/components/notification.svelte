@@ -7,6 +7,7 @@
     export let id;
     export let notifications;
     export let color;
+    export let icon;
     let currentTime = time;
     let interval;
     let divElement;
@@ -34,7 +35,9 @@
 </script>
 
 <div class="notification" in:fly={{ x: "200%", duration: 500}} out:fly={{ x: "200%" }} bind:this={divElement}>
-    <h1 class="title">{title}</h1>
+    <h1 class="title">
+        <i class={icon} aria-hidden="true"></i>
+        {title}</h1>
     <div class="timer" style={`width: ${currentTime / time * 100}%;`} />
     <span class="message">{message}</span>
 </div>
@@ -50,9 +53,9 @@
         position : relative;
         display: flex;
         flex-direction: column;
-        background-color: rgb(50, 50, 50);
+        background-color: rgba(20, 20, 20, 0.8);
         width: 38vh;
-        max-width: 36vh;
+        max-width: 39vh;
         color: white;
         padding: 0.5vh;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -64,12 +67,12 @@
         content: "";
         position: absolute;
         height: 100%;
-        width: 1vh;
+        width: 0.5vh;
         background-color: var(--color);
-        left: -1vh;
+        left: -0.5vh;
         bottom: 0;
-        border-top-left-radius: 1vh;
-        border-bottom-left-radius: 1vh;
+        border-top-left-radius: 0.5vh;
+        border-bottom-left-radius: 0.5vh;
         box-shadow: 0 0 1vh black;
     }
     .title {
@@ -85,5 +88,10 @@
         max-width: 100%;
         word-break: break-all;
         margin-right: 1vh;
+    }
+    i {
+        height: 100%;
+        font-size: 2.5vh;
+        margin-right: 0.2vh;
     }
 </style>
