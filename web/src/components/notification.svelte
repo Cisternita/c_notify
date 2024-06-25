@@ -44,17 +44,17 @@
         height: .3vh;
         width: 100%;
         background-color: var(--color);
-        box-shadow: 0 0 1vh var(--color);
+        /* box-shadow: 0 0 1vh black; */
     }
     .notification {
         position : relative;
         display: flex;
         flex-direction: column;
-        background-color: rgb(42, 42, 42);
+        background-color: rgb(50, 50, 50);
         width: 38vh;
         max-width: 36vh;
         color: white;
-        padding: 2vh;
+        padding: 0.5vh;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         border-top-right-radius: 5vh;
         border-bottom-right-radius: 5vh;
@@ -64,25 +64,26 @@
         content: "";
         position: absolute;
         height: 100%;
-        width: 5vh;
+        width: 1vh;
         background-color: var(--color);
-        left: -5vh;
+        left: -1vh;
         bottom: 0;
-        border-top-left-radius: 5vh;
-        border-bottom-left-radius: 5vh;
-        box-shadow: 0 0 1vh var(--color);
+        border-top-left-radius: 1vh;
+        border-bottom-left-radius: 1vh;
+        box-shadow: 0 0 1vh black;
     }
     .title {
         font-size: 2.5vh;
-        margin: 0;
+        margin-right: 1vh;
         max-width: 100%;
         word-break: break-all;
-        padding-bottom: 0.5vh;
+        padding-bottom: 0.1vh;
     }
     .message {
         font-size: 2vh;
-        padding-top: 1vh;
+        padding-top: 0.5vh;
         max-width: 100%;
         word-break: break-all;
+        margin-right: 1vh;
     }
 </style>
